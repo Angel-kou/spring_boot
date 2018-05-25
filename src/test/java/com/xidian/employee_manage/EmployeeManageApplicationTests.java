@@ -60,11 +60,12 @@ public class EmployeeManageApplicationTests {
 
 		RequestBuilder request = null;
 
-		//add提交employee
+		//add employee
 	    request = post("/add");
 		mvc.perform(request)
 				.andExpect(content().string(equalTo("success")));
 
+		//get employees
 		request = get("/employees");
 		mvc.perform(request)
 				.andExpect(status().isOk())
@@ -79,6 +80,7 @@ public class EmployeeManageApplicationTests {
 		mvc.perform(request)
 				.andExpect(content().string(equalTo("success")));
 
+		//update employee
 		request = put("/2");
 		mvc.perform(request)
 				.andExpect(content().string(equalTo("success")));
